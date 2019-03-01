@@ -6,8 +6,12 @@ function App() {
 
   const [todos, modifyToDos] = useState(['study with kahaan', 'eat dinner'])
 
+  const addToDo = (todo) => {
+    modifyToDos([...todos, todo])
+  } 
+  console.log(todos)
   return <div>
-    <TodoInput />
+    <TodoInput addToDo={addToDo} />
     <TodoDisplay todos={todos}/>
   </div>
 
