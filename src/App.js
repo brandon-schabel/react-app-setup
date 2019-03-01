@@ -4,15 +4,21 @@ import TodoDisplay from './components/TodoDisplay'
 
 function App() {
 
-  const [todos, modifyToDos] = useState(['study with kahaan', 'eat dinner'])
+  const [todos, modifyTodos] = useState(['study with kahaan', 'eat dinner'])
 
-  const addToDo = (todo) => {
-    modifyToDos([...todos, todo])
+  const addToDo = (todo) => { 
+    modifyTodos([...todos, todo]) 
   } 
-  console.log(todos)
+
+  const deleteTodo = (index) => {
+    let newTodos = todos
+    newTodos.splice(index, 1)
+    modifyTodos([...newTodos])
+  }
+
   return <div>
     <TodoInput addToDo={addToDo} />
-    <TodoDisplay todos={todos}/>
+    <TodoDisplay todos={todos} deleteTodo={deleteTodo} />
   </div>
 
 }
